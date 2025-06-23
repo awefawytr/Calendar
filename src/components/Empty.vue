@@ -1,5 +1,4 @@
 <script setup>
-  // Необходимо получить с какого дня начинается месяц и от него отталкиваться
   const props = defineProps({
     firstDay: {
       type: Number,

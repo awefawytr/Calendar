@@ -1,85 +1,90 @@
 <script setup>
-  import DaysOfMonth from "./DaysOfMonth.vue";
+import DaysOfMonth from "./DaysOfMonth.vue";
 
-  // let week = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];  Дни недели(вск начинается с нуля)
+let months = [
+  "Январь",
+  "Февраль",
+  "Март",
+  "Апрель",
+  "Май",
+  "Июнь",
+  "Июль",
+  "Август",
+  "Сентябрь",
+  "Октябрь",
+  "Ноябрь",
+  "Декабрь",
+];
 
-  let months = [
-    "Январь",
-    "Февраль",
-    "Март",
-    "Апрель",
-    "Май",
-    "Июнь",
-    "Июль",
-    "Август",
-    "Сентябрь",
-    "Октябрь",
-    "Ноябрь",
-    "Декабрь",
-  ];
+let date = new Date(); // Данная дата
+let year = date.getFullYear();
+let month = date.getMonth();
+let countOfDay;
+let firstDay;
 
-  let date = new Date(); // Данная дата
+function getDate(year, month) {
+  let date = new Date(year, month + 1, 0); // Общее количество дней
+  let firstDayMonth = new Date(year, month, 1); // Первый день недели в месяце
 
-  let year = date.getFullYear();
-  let month = date.getMonth();
-
-  let countOfDay;
-  let firstDay;
-
-  function getDate(year, month) {
-    // Функция получения количества дней в месяце и для определения первого дня недели данного месяца
-
-    let date = new Date(year, month + 1, 0); // Общее количество дней
-
-    let firstDayMonth = new Date(year, month, 1); // Первый день недели в месяце
-
-    // console.log(`Первый день недели в месяце ${firstDayMonth}`);
-    // console.log(`Первый день недели в данном месяце ${week[firstDayMonth.getDay()]}`);
-
-    firstDay = firstDayMonth.getDay();
-    if (firstDay === 0) {
-      // Если воскресенье
-      firstDay = 7;
-    }
-
-    countOfDay = date.getDate();
+  firstDay = firstDayMonth.getDay();
+  if (firstDay === 0) {
+    // Если воскресенье
+    firstDay = 7;
   }
-  getDate(year, month);
+
+  countOfDay = date.getDate();
+}
+getDate(year, month);
 </script>
 
 <template>
-  <div class="calendar-title">
-    <span class="calendar-title__day" id="1">Пн</span>
-    <span class="calendar-title__day" id="2">Вт</span>
-    <span class="calendar-title__day" id="3">Ср</span>
-    <span class="calendar-title__day" id="4">Чт</span>
-    <span class="calendar-title__day" id="5">Пт</span>
-    <span class="calendar-title__day" id="6">Сб</span>
-    <span class="calendar-title__day" id="0">Вс</span>
-  </div>
-  <div class="calendar-number">
-    <DaysOfMonth :countOfDay="countOfDay" :firstDay="firstDay" />
+  <div class="calendar">
+    <h1 class="calendar__header">{{ months[month] }}</h1>
+    <div class="calendar-content">
+      <div class="calendar-title">
+        <span class="calendar-title__day" id="1">Пн</span>
+        <span class="calendar-title__day" id="2">Вт</span>
+        <span class="calendar-title__day" id="3">Ср</span>
+        <span class="calendar-title__day" id="4">Чт</span>
+        <span class="calendar-title__day" id="5">Пт</span>
+        <span class="calendar-title__day" id="6">Сб</span>
+        <span class="calendar-title__day" id="0">Вс</span>
+      </div>
+      <div class="calendar-number">
+        <DaysOfMonth :countOfDay="countOfDay" :firstDay="firstDay" />
+      </div>
+    </div>
   </div>
 </template>
 
 <style>
-  .calendar-number {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    text-align: center;
-  }
-  .calendar-title {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(7, 50px);
-  }
-  .calendar-title__day {
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
-    text-align: center;
-  }
+.calendar-number {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
 
-  .calendar-title__day:last-child {
-    border-right: none;
-  }
+.calendar-title {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7, 50px);
+}
+
+.calendar-title__day {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  text-align: center;
+}
+
+.calendar-title__day:last-child {
+  border-right: none;
+}
+
+.calendar-content {
+  border: 1px solid black;
+}
+
+.calendar__header {
+  margin: 0 0 20px 0;
+}
 </style>
