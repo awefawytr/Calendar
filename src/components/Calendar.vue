@@ -74,6 +74,13 @@ getDate(year, month);
 </template>
 
 <style>
+.calendar {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: space-between;
+}
+
 .calendar-number {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -98,9 +105,5 @@ getDate(year, month);
 
 .calendar-content {
   border: 1px solid black;
-}
-
-.calendar__header {
-  margin: 0 0 20px 0;
 }
 </style>
