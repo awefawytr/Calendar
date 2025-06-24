@@ -1,9 +1,11 @@
 <script setup>
 import Calendar from "./components/Calendar.vue";
+
+let monthsOrder = 0;
 </script>
 <template>
   <div class="wrapper">
-    <Calendar v-for="month in 12">
+    <Calendar v-for="month in 12" :monthsOrder="monthsOrder++">
       {{ month }}
     </Calendar>
   </div>

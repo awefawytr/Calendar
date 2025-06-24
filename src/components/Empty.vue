@@ -6,7 +6,7 @@
     },
   });
 
-  console.log(props.firstDay);
+  // console.log(props.firstDay);
 </script>
 
 <template>
