@@ -1,6 +1,16 @@
 <script setup>
 import DaysOfMonth from "./DaysOfMonth.vue";
 
+const props = defineProps({
+  monthsOrder: {
+    type: Number,
+    required: true
+  }
+})
+
+
+// console.log(props.monthsOrder);
+
 let months = [
   "Январь",
   "Февраль",
@@ -18,13 +28,18 @@ let months = [
 
 let date = new Date(); // Данная дата
 let year = date.getFullYear();
-let month = date.getMonth();
+// let month = date.getMonth();
+
+let month = props.monthsOrder;
+
 let countOfDay;
 let firstDay;
 
 function getDate(year, month) {
   let date = new Date(year, month + 1, 0); // Общее количество дней
-  let firstDayMonth = new Date(year, month, 1); // Первый день недели в месяце
+  console.log(date);
+  // let firstDayMonth = new Date(year, month, 1); // Первый день недели в месяце
+  let firstDayMonth = new Date(year, props.monthsOrder, 1);
 
   firstDay = firstDayMonth.getDay();
   if (firstDay === 0) {
@@ -33,13 +48,14 @@ function getDate(year, month) {
   }
 
   countOfDay = date.getDate();
+  console.log(countOfDay);
 }
 getDate(year, month);
 </script>
 
 <template>
   <div class="calendar">
-    <h1 class="calendar__header">{{ months[month] }}</h1>
+    <h1 class="calendar__header">{{ months[props.monthsOrder] }}</h1>
     <div class="calendar-content">
       <div class="calendar-title">
         <span class="calendar-title__day" id="1">Пн</span>
