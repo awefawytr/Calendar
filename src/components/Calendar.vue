@@ -106,4 +106,8 @@ getDate(year, month);
 .calendar-content {
   border: 1px solid black;
 }
+
+.calendar__header {
+  margin: 10px 0 0 0;
+}
 </style>
