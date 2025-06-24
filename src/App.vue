@@ -12,6 +12,7 @@ let monthsOrder = 0;
 </template>
 <style scoped>
 .wrapper {
+  gap: 15px;
   flex-wrap: wrap;
   height: 100vh;
   display: flex;
