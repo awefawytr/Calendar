@@ -1,9 +1,6 @@
 <script setup>
 import Empty from "./Empty.vue";
 
-<<<<<<< HEAD
-=======
->>>>>>> fix-calendar-style
 const props = defineProps({
   countOfDay: {
     type: Number,
