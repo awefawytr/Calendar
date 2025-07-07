@@ -14,9 +14,9 @@ let monthsOrder = 0;
 .wrapper {
   gap: 15px;
   flex-wrap: wrap;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 0 20px 0;
 }
 </style>

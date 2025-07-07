@@ -43,6 +43,7 @@ function getDate(year, month) {
   let firstDayMonth = new Date(year, props.monthsOrder, 1);
 
   firstDay = firstDayMonth.getDay();
+
   if (firstDay === 0) {
     // Если воскресенье
     firstDay = 7;
@@ -74,6 +75,13 @@ getDate(year, month);
 </template>
 
 <style>
+.calendar {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: space-between;
+}
+
 .calendar-number {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -98,9 +106,10 @@ getDate(year, month);
 
 .calendar-content {
   border: 1px solid black;
+  border-radius: 10px;
 }
 
 .calendar__header {
-  margin: 0 0 20px 0;
+  margin: 10px 0 0 0;
 }
 </style>
