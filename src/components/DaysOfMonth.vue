@@ -19,7 +19,7 @@ const props = defineProps({
 let idDay = props.idDay - 1;
 let countOfDay = props.countOfDay;
 
-function giveId(){
+function giveId(){ // Функция присваивания id
   for(;idDay <= countOfDay;){
     idDay++;
     if(idDay >= 8){
