@@ -16,12 +16,18 @@ const props = defineProps({
   }
 });
 
+let idDay = props.idDay - 1;
+let countOfDay = props.countOfDay;
+
 function giveId(){
-  for(let idDay = props.idDay; idDay < props.firstDay; idDay++){
-    console.log(idDay);
+  for(;idDay <= countOfDay;){
+    idDay++;
+    if(idDay >= 8){
+      idDay = 1;
+    }
+    return idDay;
   }
 }
-giveId();
 </script>
 <template>
   <Empty :firstDay="firstDay" />
