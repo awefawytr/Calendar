@@ -105,6 +105,7 @@ getDate(year, month);
 
 .calendar-content {
   border: 1px solid black;
+  border-radius: 10px;
 }
 
 .calendar__header {
