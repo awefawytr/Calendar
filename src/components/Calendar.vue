@@ -35,9 +35,10 @@ let month = props.monthsOrder;
 let countOfDay;
 let firstDay;
 
+let idDay;
+
 function getDate(year, month) {
   let date = new Date(year, month + 1, 0); // Общее количество дней
-  console.log(date);
   // let firstDayMonth = new Date(year, month, 1); // Первый день недели в месяце
   let firstDayMonth = new Date(year, props.monthsOrder, 1);
 
@@ -48,7 +49,6 @@ function getDate(year, month) {
   }
 
   countOfDay = date.getDate();
-  console.log(countOfDay);
 }
 getDate(year, month);
 </script>
@@ -64,10 +64,10 @@ getDate(year, month);
         <span class="calendar-title__day" id="4">Чт</span>
         <span class="calendar-title__day" id="5">Пт</span>
         <span class="calendar-title__day" id="6">Сб</span>
-        <span class="calendar-title__day" id="0">Вс</span>
+        <span class="calendar-title__day" id="7">Вс</span>
       </div>
       <div class="calendar-number">
-        <DaysOfMonth :countOfDay="countOfDay" :firstDay="firstDay" />
+        <DaysOfMonth :countOfDay="countOfDay" :firstDay="firstDay" :idDay="firstDay"/>
       </div>
     </div>
   </div>
