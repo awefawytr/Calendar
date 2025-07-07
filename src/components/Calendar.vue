@@ -100,6 +100,10 @@ getDate(year, month);
   text-align: center;
 }
 
+[id^="6"], [id^="7"]{
+  color: red;
+}
+
 .calendar-title__day:last-child {
   border-right: none;
 }
