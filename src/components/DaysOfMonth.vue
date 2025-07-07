@@ -35,4 +35,8 @@ function giveId(){ // Функция присваивания id
     <span class="calendar-number__day" :idDay="giveId()">{{ number }}</span>
   </slot>
 </template>
-<style scoped></style>
+<style scoped>
+[idday^="6"], [idday^="7"]{
+  color: red;
+}
+</style>
