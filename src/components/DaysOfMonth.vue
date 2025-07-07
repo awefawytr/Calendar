@@ -1,18 +1,19 @@
 <script setup>
-  import Empty from "./Empty.vue";
+import Empty from "./Empty.vue";
 
-  let idDay = 1;
+let idDay = 1;
 
-  const props = defineProps({
-    countOfDay: {
-      type: Number,
-      required: true,
-    },
-    firstDay: {
-      type: Number,
-      required: true,
-    },
-  });
+const props = defineProps({
+  countOfDay: {
+    type: Number,
+    required: true,
+  },
+  firstDay: {
+    type: Number,
+    required: true,
+  },
+});
+
 </script>
 <template>
   <Empty :firstDay="firstDay" />

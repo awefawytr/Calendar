@@ -37,18 +37,17 @@ let firstDay;
 
 function getDate(year, month) {
   let date = new Date(year, month + 1, 0); // Общее количество дней
-  console.log(date);
   // let firstDayMonth = new Date(year, month, 1); // Первый день недели в месяце
   let firstDayMonth = new Date(year, props.monthsOrder, 1);
 
   firstDay = firstDayMonth.getDay();
+
   if (firstDay === 0) {
     // Если воскресенье
     firstDay = 7;
   }
 
   countOfDay = date.getDate();
-  console.log(countOfDay);
 }
 getDate(year, month);
 </script>
